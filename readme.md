@@ -21,9 +21,11 @@ docker compose up
 Restaurer la base de donner mongo
 
 ```sh
-docker cp sports fdj-mongodb-1:/sports
+mkdir dumps 
+mv sports dumps
+docker cp dumps fdj-mongodb-1:/
 "Attacher un shell au container mongodb"
-mongorestore /dump
+mongorestore /dumps
 ```
 
 
