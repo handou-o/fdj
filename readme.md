@@ -4,7 +4,8 @@
 - Docker
 - Mongodb - 4.4
 - Angular - 17.3
--- Angular material pour certaines UI
+   * Angular material pour certaines UI
+   * SSR pour accélérer le temps de chargement
 - node - 18
 
 
