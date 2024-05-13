@@ -28,11 +28,11 @@ mongorestore /dump
 
 # Variable d'environment 
 - api: 
-    -- MONGODB_URL correspond a l'url mongo (avec ou sans login)
--- PORT
+    * MONGODB_URL correspond a l'url mongo (avec ou sans login)
+    * PORT
 - front-ssr: 
--- API_URL correspond a l'url de l'api (utilisation d'un reverse proxy)
-    -- PORT
+    * API_URL correspond a l'url de l'api (utilisation d'un reverse proxy)
+    * PORT
 
 # Documentation 
 Une documentation swagger est disponible sur le container api
