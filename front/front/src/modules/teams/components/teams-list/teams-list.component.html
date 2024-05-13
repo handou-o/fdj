@@ -1,0 +1,13 @@
+<app-league-autocomplete (leagueSelected)="listTeams($event)"></app-league-autocomplete>
+
+<div class="container">
+        @for (team of teams; track team._id) {
+            <a [routerLink]="['team', team._id]" [fragment]="team.name">
+                <img class="logo item" src="{{team.thumbnail}}" alt="{{team.name}}">
+            </a>
+            }
+
+            @if (firstSearch == true && (teams == null || teams.length === 0)) {
+                    We are sorry but the database is empty for this league, Try with another one
+            }
+</div>

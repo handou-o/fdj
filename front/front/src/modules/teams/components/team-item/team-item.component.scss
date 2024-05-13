@@ -1,0 +1,94 @@
+.custom-toolbar {
+    padding: 0 5px;
+    display: flex;
+
+    .clubName {
+        flex: 1;
+        padding-right: 38px;
+    }
+}
+
+.icon-text {
+    flex:1;
+    text-decoration: none;
+    mat-icon {
+        // transform: scale(1.5);
+        font-size: 40px;
+    }
+
+    span {
+        margin-left: -12px;
+    }
+
+    display: flex;
+    align-items: center;
+    color: #007AFF;
+}
+
+mat-card {
+    background: #e1e1e1;
+    border-bottom: 10px solid white;
+    max-height: 300px;
+    overflow: hidden;
+
+    mat-card-content {
+        overflow: hidden;
+        justify-content: center;
+    }
+
+}
+.flex {
+    display: flex;
+    .flex-column {
+        flex-direction: column;
+    }
+
+    .flex-row {
+        flex-direction: row;
+    }
+}
+
+.flex-1{
+    flex:1
+}
+
+.player-detail{
+    margin-top: 10px;
+    margin-left: 10px;
+    width: 200px;
+    span:last-child {
+        margin-top: auto;
+        margin-bottom: 5px;
+    }
+
+    span {
+        color: grey;
+    }
+}
+
+.mt-2 {
+    margin-top: 5px;
+}
+
+.crop {
+    overflow: hidden;
+    width: 150px; /* crop width */
+    height: 150px; /* crop height */
+    @media screen and (min-width: 900px) {
+        width: 300px; /* crop width */
+        height: 300px; /* crop height */
+    }
+    margin-bottom: 10px;
+}
+
+.player-img{
+    margin-top: -0px; /* start x */
+    margin-left: -50px; /* start y */
+    width: 250px;
+    @media screen and (min-width: 900px) {
+        max-height: 300px;
+        margin: 0;
+        width: auto;
+
+    }
+}

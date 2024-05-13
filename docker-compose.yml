@@ -1,0 +1,43 @@
+services:
+  mongodb:
+    image: mongo:4.4
+    volumes:
+      - ./data:/data/db
+    ports:
+      - 27017:27017
+      
+  api:
+    build: 
+      context: ./api
+      dockerfile: Dockerfile
+    command: npm run start:dev
+    ports:
+      - 3000:3000
+    volumes:
+      - ./api/api/src:/var/www/server/src
+    environment:
+      - MONGODB_URL=mongodb://mongodb/sports
+      - NODE_ENV=development
+
+  # dev server
+  front:
+    build: 
+      context: ./front
+      dockerfile: Dockerfile
+    ports:
+      - 4200:4200
+    volumes:
+      - ./front/front/src:/usr/src/app/src
+
+  # EXAMPLE of prod server
+  front-prod: 
+    build: 
+        context: ./front
+        dockerfile: Dockerfile
+    ports:
+      - 4300:4000
+    volumes:
+      - ./front/front/dist:/usr/src/app/dist
+    environment:
+      - API_URL=http://api:3000
+    command: node /usr/src/app/dist/front/server/server.mjs

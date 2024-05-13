@@ -1,0 +1,14 @@
+<div [style.margin.px]="5" [style.margin-top.px]="10">
+
+<mat-form-field appearance="outline" [style.width.%]="100">
+    <mat-label>Search by league</mat-label>
+    <input matInput type="text" [formControl]="myControl" [matAutocomplete]="auto">
+    <mat-icon matPrefix aria-hidden="false" aria-label="Example home icon" fontIcon="search"></mat-icon>
+
+    <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn" (optionSelected)="selected($event)">
+      <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+        {{option.name}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</div>

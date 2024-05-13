@@ -1,0 +1,41 @@
+<mat-toolbar class="custom-toolbar">
+    <a class="icon-text" [routerLink]="['/']">
+        <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="arrow_back_ios" inline="true"></mat-icon>
+        <span>Back</span>
+    </a>
+    <span class="clubName">{{clubName}}</span>
+    </mat-toolbar>
+
+
+<div class="container">
+    @for (player of players; track player._id) {
+    <mat-card class="flex flex-column">
+        <mat-card-content class="flex flex-row">
+
+            
+            <div class="crop">
+                <img class="player-img" src="{{player.thumbnail}}" alt="{{player.name}}">
+            </div>
+            <div class="flex flex-column player-detail">
+                <b>{{player.name}}</b>
+                <span> <i>{{player.position}} </i></span>
+                <span><i>birthDate: {{player.born | date: 'YYYY-MM-dd'}}</i></span>
+                <span class="mt-2"><i>price: 
+                @if (player.signin == null || player.signin.length === 0) {
+                    free
+                }
+                @else {
+                    {{player.signin[0].amount | currency: fixIssue(player.signin[0].currency).toUpperCase() }}
+                }
+            </i>
+            </span>
+            </div>
+        </mat-card-content>
+    </mat-card>
+    }
+    @if (players == null || players.length === 0) {
+        <a [routerLink]="['/']">
+            We are sorry but the database is empty for this team, Try with another one
+        </a>
+    }
+</div>
